@@ -11,13 +11,13 @@ This is a minimal implementation of the RAG model for question answering.
 1. Download and install MiniConda from [here](https://docs.anaconda.com/free/miniconda/#quick-command-line-install)
 2. Create a new environment using the following command:
 
-```
+```cmd
 conda create -n mini-rag python=3.8
 ```
 
 3. Activate the environment:
 
-```
+```cmd
 conda activate mini_rag
 ```
 
@@ -25,13 +25,13 @@ conda activate mini_rag
 
 ### Install the required packages
 
-```
+```cmd
 pip install -r requirements.txt
 ```
 
 ### Setup the environment variables
 
-```
+```cmd
 copy .env.example .env
 ```
 
