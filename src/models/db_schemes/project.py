@@ -1,19 +1,17 @@
 from pydantic import BaseModel, Field, validator
 from typing import Optional
-from bson.objectid import ObjectId     # datatype of id in monogdb
+from bson.objectid import ObjectId
 
 class Project(BaseModel):
-    _id: Optional[ObjectId]
-    project_id:str = Field(...,min_length=1)   # i don't be empty string
-    
+    id: Optional[ObjectId] = Field(None, alias="_id")
+    project_id: str = Field(..., min_length=1)
+
     @validator('project_id')
     def validate_project_id(cls, value):
-        if not value.isalnum():     # isalnum that is all alphanumeric
+        if not value.isalnum():
             raise ValueError('project_id must be alphanumeric')
         
-        return value   
-    
-    
+        return value
+
     class Config:
-        arbitrary_types_allowed = True   # cause pydantic does not support or understand the ObjectId
-                            # so we have to allow it. anything not supported don't  raise ValueError
+        arbitrary_types_allowed = True
